@@ -50,5 +50,5 @@ async def read_post(post_id:str, request:Request):
     return await handle_request(post_id)
 
 @app.exception_handler(404)
-async def fourofour():
+async def fourofour(_, __):
     return {"error": "Unknown path. Report to the administrator to resolve the issue."}
