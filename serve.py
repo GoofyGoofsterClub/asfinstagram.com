@@ -8,7 +8,7 @@ import instagram
 
 app = FastAPI()
 inst = instagram.Instagram()
-EMBED_USERAGENTS = ["TelegramBot (like TwitterBot)", "Mozilla/5.0 (compatible; Discordbot/2.0; +https://discordapp.com)"]
+EMBED_USERAGENTS = ["TelegramBot (like TwitterBot)", "chatterino-api-cache/2.1.0 link-resolver", "Mozilla/5.0 (compatible; Discordbot/2.0; +https://discordapp.com)"]
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
