@@ -33,3 +33,17 @@ async def read_post(post_id:str, request:Request):
 async def read_post(post_id:str, request:Request):
     if(not await check_header(request)): return RedirectResponse(url=f"https://instagram.com/reels/{post_id}")
     return await handle_request(post_id)
+
+@app.get("/reel/{post_id}")
+async def read_post(post_id:str, request:Request):
+    if(not await check_header(request)): return RedirectResponse(url=f"https://instagram.com/reel/{post_id}")
+    return await handle_request(post_id)
+
+@app.get("/{username}/{post_id}")
+async def read_post(post_id:str, request:Request):
+    if(not await check_header(request)): return RedirectResponse(url=f"https://instagram.com/{username}/{post_id}")
+    return await handle_request(post_id)
+
+@app.exception_handler(404)
+async def fourofour():
+    return {"error": "Unknown path. Report to the administrator to resolve the issue."}
