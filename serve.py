@@ -39,9 +39,14 @@ async def read_post(post_id:str, request:Request):
     if(not await check_header(request)): return RedirectResponse(url=f"https://instagram.com/reel/{post_id}")
     return await handle_request(post_id)
 
-@app.get("/{username}/{post_id}")
+@app.get("/{username}/reel/{post_id}")
 async def read_post(post_id:str, request:Request):
-    if(not await check_header(request)): return RedirectResponse(url=f"https://instagram.com/{username}/{post_id}")
+    if(not await check_header(request)): return RedirectResponse(url=f"https://instagram.com/{username}/reel/{post_id}")
+    return await handle_request(post_id)
+
+@app.get("/{username}/p/{post_id}")
+async def read_post(post_id:str, request:Request):
+    if(not await check_header(request)): return RedirectResponse(url=f"https://instagram.com/{username}/p/{post_id}")
     return await handle_request(post_id)
 
 @app.exception_handler(404)
