@@ -12,7 +12,7 @@ EMBED_USERAGENTS = ["TelegramBot (like TwitterBot)", "chatterino-api-cache/2.1.0
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
-    return RedirectResponse(url="https://reze.moe")
+    return "Instagram Embed Resolver - https://github.com/GoofyGoofsterClub/asfinstagram.com; not affiliated with Instagram or Meta."
 
 async def handle_request(post_id):
     post_data = await run_in_threadpool(inst.handle_post, post_id)
