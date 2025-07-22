@@ -12,7 +12,8 @@ EMBED_USERAGENTS = ["TelegramBot (like TwitterBot)", "chatterino-api-cache/2.1.0
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
-    return "Instagram Embed Resolver - https://github.com/GoofyGoofsterClub/asfinstagram.com; not affiliated with Instagram or Meta."
+    while True:
+        await asyncio.sleep(3600)
 
 async def handle_request(post_id):
     post_data = await run_in_threadpool(inst.handle_post, post_id)
@@ -51,4 +52,4 @@ async def read_post(username:str, post_id:str, request:Request):
 
 @app.exception_handler(404)
 async def fourofour(_, __):
-    return {"error": "Unknown path. Report to the administrator to resolve the issue."}
+    while True: await asyncio.sleep(3600)
